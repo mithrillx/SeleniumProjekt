@@ -15,12 +15,29 @@ namespace SeleniumProjekt
     class Tests 
     {
         IWebDriver driver;
-        DateTime time = new DateTime();
         [SetUp]
         public void testStart()
         {
             Console.WriteLine(DateTime.Now.ToString() + " start of Test");
         }
+
+        [Test]
+        public void Bolt()
+        {
+            driver = new ChromeDriver();
+            BoltADB boltadb = new BoltADB(driver);
+            boltadb.getHere();
+            boltadb.login("bolt4-1", "Welcome@1");
+            boltadb.StartNewQuote(BoltADB.LineOfBusiness.PL);
+        }
+
+
+
+
+
+
+
+
 
         [Test]
         public void ss()
